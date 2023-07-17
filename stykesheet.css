@@ -1,204 +1,362 @@
-* {
-  box-sizing: border-box;
+html,body {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img { 
+    border:0;
+}
+input{
+    border:1px solid #b0b0b0;
+    padding:3px 5px 4px;
+    color:#979797;
+    width:190px;
+}
+address,caption,cite,code,dfn,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+ol,ul {
+    list-style:none;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym { border:0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Lucida Grande";
+    background: #f1f1f1;
+    font-family: roboto, sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .6);
+    margin: 0;
+    line-height: 1.3;
 }
 
 a {
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-.clear {
-  clear: left;
+.topbar {
+    background: #2c3e50;
+    color: #fff;
+}
+
+.topbar-logo {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    padding: 11px 0;
+}
+
+.topbar-nav {
+    text-align: center;
+    padding-bottom: 16px;
+}
+
+.topbar-nav a {
+    display: inline-block;
+    margin: 0 12px;
+    color: rgba(255, 255, 255, 0.67);
+    transition: color .3s;
+}
+
+.topbar-nav a:hover,
+.topbar-nav a.active {
+    color: #fff;
 }
 
 .container {
-  max-width: 1170px;
-  padding: 0 15px;
-  margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.top-wrapper {
-  padding: 180px 0 100px 0;
-  background-image: url(https://prog-8.com/images/html/advanced/top_en.png);
-  background-size: cover;
-  color: white;
-  text-align: center;
+.site {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.top-wrapper h1 {
-  opacity: 0.7;
-  font-size: 45px;
-  letter-spacing: 5px;
-  margin-bottom: 10px;
+.sidebar {
+    display: flex;
+    flex-wrap:wrap;
+    margin-bottom: 20px;
 }
 
-.top-wrapper p {
-  opacity: 0.7;
-  margin-bottom: 3px;
+.main {
+    margin-bottom: 20px;
 }
 
-.btn-wrapper {
-  text-align: center;
-  margin: 20px 0;
+.profil {
+    display: none;
 }
 
-.btn-wrapper p {
-  margin: 10px 0;
+.sidebar a {
+    display: block;
+    width: 50%;
+    padding: 0.6em 0;
+    transition: .1s;
+    border: solid 1px transparent;
+    padding-left: 10px;
 }
 
-.signup {
-  background-color: #239b76;
+.sidebar a::before {
+    content: '';
+    display: inline-block;
+    width: 11px;
+    height: 9px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 20px;
+    opacity: .67;
+    background: url(img/home.svg) center center / contain no-repeat;
+    transition: opacity .3s;
 }
 
-.facebook {
-  background-color: #3b5998;
-  margin-right: 10px;
+.sidebar .sidebar-message::before {
+    background-image: url(img/message.svg);
+}
+.sidebar .sidebar-events::before {
+    background-image: url(img/events.svg);
+}
+.sidebar .sidebar-groupes::before {
+    background-image: url(img/groups.svg);
 }
 
-.twitter {
-  background-color: #55acee;
+.sidebar a:hover,
+.sidebar a.active {
+    color: #000;
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    background: #fff;
+    font-weight: bold;
+}
+.sidebar a:hover::before,
+.sidebar a.active::before {
+    opacity: 1;
 }
 
-.btn {
-  padding: 12px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-  text-align: center;
+.card {
+    border: solid 1px #dbdbdb;
+    background: #fff;
+    border-radius: 3px;
+    margin-bottom: 15px;
 }
 
-.btn:hover {
-  opacity: 1;
+.card:last-child {
+    margin-bottom: 0;
 }
 
-.fa {
-  margin-right: 5px;
+.card-header {
+    padding: 10px;
+    position: relative;
 }
 
-header {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-  position :fixed;
-  top: 0;
-  z-index: 10;
+.card-header-avatar {
+    padding-left: 65px;
 }
 
-.logo {
-  width: 124px;
-  margin-top: 20px;
+.card-avatar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
 }
 
-.header-left {
-  float: left;
+.card-title {
+    font-weight: bold;
+    color: #000;
+    font-size: 18px;
+    padding: 0;
+    margin: 0 0 5px 0;
 }
 
-.header-right {
-  float: right;
-  margin-right: -25px;
+.card-date {
+    color: rgba(0, 0, 0, .38);
+    font-size: 12px
 }
 
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
-  display: block;
-  float: left;
-  transition: all 0.5s;
+.card-body {
+    padding: 0 10px 20px 10px;
 }
 
-.header-right a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.card-body .fullwidth {
+    width: calc(100% + 20px);
+    display: block;
+    margin-left: -10px ;
+    margin-right: -10px ;
 }
 
-.menu-icon{
-  color: white;
-  float: right;
-  font-size: 25px;
-  padding: 21px 0;
-  display: none;
+.card-body p:first-child {
+    margin-top: 0;
 }
 
-.lesson-wrapper {
-  padding-bottom: 80px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #f7f7f7;
-  text-align: center;
+.card-body p:last-child {
+    margin-bottom: 0;
 }
 
-.heading {
-  padding-top: 80px;
-  padding-bottom: 50px;
-  color: #5f5d60;
+.card-footer {
+    border: solid 1px #dbdbdb;
+    background: #fbfbfb;
+    display: flex;
+    padding: 10px;
+    font-size: 12px;
+    color: #bdbdbd;
 }
 
-.heading h2 {
-  font-weight: normal;
+.card-footer a{
+    text-decoration: none;
 }
 
-.lesson {
-  float: left;
-  width: 25%;
+.card-footer a:hover{
+    text-decoration: underline;
 }
 
-.lesson-icon {
-  position: relative;
+.card-like::before,
+.card-comments::before {
+content: '';
+display: inline-block;
+vertical-align: middle;
+margin-right: 5px;
+width: 20px;
+height: 20px;
+background: url(img/like.svg) center center / 20px 18px no-repeat;
 }
 
-.lesson-icon p {
-  position: absolute;
-  top: 75px;
-  width: 100%;
-  color: white;
+.card-comments {
+    margin-left: auto
 }
 
-.text-contents {
-  width: 80%;
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 15px;
-  color: #b3aeb5;
+.card-comments::before {
+    background: url(img/comment.png) center center / 18px 17px no-repeat;
 }
 
-.heading h3 {
-  font-weight: normal;
+.sidebar-title {
+    margin-top: 30px;
+    margin-bottom: 18px;
+    color: #000;
+    font-size: 15px;
 }
 
-.message-wrapper {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 80px;
-  text-align: center;
+.sidebar-title::after  {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 4px;
+    background: #000;
 }
 
-.message {
-  padding: 15px 40px;
-  background-color: #5dca88;
-  cursor: pointer;
-  box-shadow: 0 7px #1a7940;
+.friend {
+    margin: 14px 0;
+    display: flex;
 }
 
-.message:active {
-  position: relative;
-  top: 7px;
-  box-shadow: none;
+.friend-body {
+    display: flex;
+    flex-direction: column;
 }
 
-footer img {
-  width: 125px;
+.friend-avatar {
+    width: 75px;
+    height: 75px;
+    flex: none;
+    margin-right: 10px;
 }
 
-footer p {
-  color: #b3aeb5;
-  font-size: 12px;
+.friend-name {
+    display: block;
+    font-weight: bold;
+    color: #000;
+    font-size: 15px;
+    margin-bottom: 5px
 }
 
-footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
+.friend-connections {
+    color: rgba(0, 0, 0, .38);
+    font-size: 12px;
 }
+
+.friend-add {
+    display: block;
+    font-size: 12px;
+    color: #000;
+    margin-top: auto;
+    margin-bottom: 3px;
+}
+
+.friend-add::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 13px;
+    transform: translateY(-1px);
+    background: center center / 18px 13px no-repeat url(img/add.svg);
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+@media only screen and (min-width: 520px) {
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        padding: 0 25px;
+    }
+    .topbar-logo,
+    .topbar-nav {
+        padding: 0;
+    }
+    .topbar-nav a {
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    .site {
+        display: flex;
+    }
+
+    .profil {
+        display: block;
+    }
+
+    .sidebar {
+        display: block;
+        flex: none;
+        width: 180px;
+    }
+
+    .sidebar a {
+        width: 100%;
+    }
+
+    .main {
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .aside {
+        flex: none;
+        width: 310px;
+    }
+}
+
